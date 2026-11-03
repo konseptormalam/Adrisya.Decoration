@@ -596,12 +596,21 @@
         document.getElementById('lbKanan').addEventListener('click', function(e){ e.stopPropagation(); tampil(idx + 1); });
         lb.addEventListener('click', function(e){ if(e.target === lb) tutupLb(); });
         document.addEventListener('keydown', function(e){ if(lb.hidden) return; if(e.key === 'Escape') tutupLb(); if(e.key === 'ArrowLeft') tampil(idx - 1); if(e.key === 'ArrowRight') tampil(idx + 1); });
-        // Grup katalog
-        var itemGaleri = Array.prototype.slice.call(document.querySelectorAll('#katalog .grid > div'));
-        var fotoKatalog = itemGaleri.map(function(d){ var im = d.querySelector('img'); return im ? { src: im.src, alt: im.alt } : null; }).filter(Boolean);
-        itemGaleri.forEach(function(d, i){ d.addEventListener('click', function(){ bukaLb(fotoKatalog, i); }); });
+        // Grup katalog (delegasi klik — aman untuk galeri yang disusun ulang pemuat)
+        var gridKatalog = document.querySelector('#katalog .grid');
+        if (gridKatalog) gridKatalog.addEventListener('click', function(e){
+            var item = e.target;
+            while (item && item.parentElement !== gridKatalog) item = item.parentElement;
+            if (!item) return;
+            var grup = [], idx = -1;
+            Array.prototype.slice.call(gridKatalog.children).forEach(function(d2){
+                var im2 = d2.querySelector('img');
+                if (im2) { if (d2 === item) idx = grup.length; grup.push({ src: im2.src, alt: im2.alt }); }
+            });
+            if (idx >= 0) bukaLb(grup, idx);
+        });
         // Grup slider paket + seret pakai mouse + klik untuk perbesar (klik dibatalkan bila habis menyeret)
-        document.querySelectorAll('[id^="slider-"]').forEach(function(sl){
+        function ikatSlider(sl){
             var fotoSlider = Array.prototype.slice.call(sl.querySelectorAll('img')).map(function(im){ return { src: im.src, alt: im.alt }; });
             var seret = false, geserJauh = false, xAwal = 0, scrollAwal = 0;
             sl.addEventListener('pointerdown', function(e){
@@ -618,7 +627,10 @@
             sl.querySelectorAll('img').forEach(function(im, i){
                 im.addEventListener('click', function(){ if(geserJauh){ geserJauh = false; return; } bukaLb(fotoSlider, i); });
             });
-        });
+
+        }
+        document.querySelectorAll('[id^="slider-"]').forEach(ikatSlider);
+        window.__ikatSlider = ikatSlider;
         // Tombol kembali ke atas
         var btnAtas = document.getElementById('tombolAtas');
         window.addEventListener('scroll', function(){ btnAtas.classList.toggle('muncul', window.scrollY > 600); }, { passive: true });
@@ -637,11 +649,35 @@
 (function () {
   function rapikan(s) { return (s || '').trim().replace(/\s+/g, ' '); }
   function nodeTeksAwal(el) {
+    if (!el) return null;
     for (var i = 0; i < el.childNodes.length; i++) {
       var n = el.childNodes[i];
       if (n.nodeType === 3 && n.textContent.trim()) return n;
     }
     return null;
+  }
+  function isiTeksAwal(el, v) { var n = nodeTeksAwal(el); if (n) n.textContent = ' ' + v + ' '; }
+  function susunDaftar(ul, daftar) {
+    if (!ul) return;
+    var lama = [].slice.call(ul.children);
+    var frag = document.createDocumentFragment();
+    daftar.forEach(function (teks, i) {
+      var li;
+      if (lama[i] && rapikan(lama[i].textContent) === rapikan(teks)) {
+        li = lama[i];
+      } else {
+        var sumber = lama[i] || lama[0];
+        li = sumber ? sumber.cloneNode(false) : document.createElement('li');
+        if (sumber) {
+          var ikon = sumber.querySelector('i');
+          if (ikon) li.appendChild(ikon.cloneNode(true));
+        }
+        li.appendChild(document.createTextNode(' ' + teks));
+      }
+      frag.appendChild(li);
+    });
+    ul.innerHTML = '';
+    ul.appendChild(frag);
   }
   function terapkan(f, v) {
     try {
@@ -658,32 +694,10 @@
         els.forEach(function (img, i) { if (v[i]) img.src = v[i]; });
         return;
       }
-      if (f.tipe === 'daftar') {
-        var ul = els[0]; if (!ul) return;
-        var lama = [].slice.call(ul.children);
-        var frag = document.createDocumentFragment();
-        v.forEach(function (teks, i) {
-          var li;
-          if (lama[i] && rapikan(lama[i].textContent) === rapikan(teks)) {
-            li = lama[i];
-          } else {
-            var sumber = lama[i] || lama[0];
-            li = sumber ? sumber.cloneNode(false) : document.createElement('li');
-            if (sumber) {
-              var ikon = sumber.querySelector('i');
-              if (ikon) li.appendChild(ikon.cloneNode(true));
-            }
-            li.appendChild(document.createTextNode(' ' + teks));
-          }
-          frag.appendChild(li);
-        });
-        ul.innerHTML = '';
-        ul.appendChild(frag);
-        return;
-      }
+      if (f.tipe === 'daftar') { susunDaftar(els[0], v); return; }
       els.forEach(function (el) {
         if (f.tipe === 'teks') { el.textContent = v; }
-        else if (f.tipe === 'teksAwal') { var n = nodeTeksAwal(el); if (n) n.textContent = ' ' + v + ' '; }
+        else if (f.tipe === 'teksAwal') { isiTeksAwal(el, v); }
         else if (f.tipe === 'img') { el.src = v; }
         else if (f.tipe === 'href') { el.setAttribute('href', v); }
         else if (f.tipe === 'bg') { el.style.backgroundImage = 'url("' + v + '")'; }
@@ -691,12 +705,126 @@
       });
     } catch (e) { /* abaikan field yang gagal, halaman tetap tampil */ }
   }
+  function bangunPaket(daftar, waDariUbahan) {
+    var grid = document.querySelector('#paket .grid');
+    if (!grid || !daftar || !daftar.length) return;
+    var anak = [].slice.call(grid.children);
+    if (!anak.length) return;
+    var tplBiasa = anak.filter(function (c) { return !c.classList.contains('kartu-lebar'); })[0] || anak[0];
+    var tplBesar = anak.filter(function (c) { return c.classList.contains('kartu-lebar'); })[0] || null;
+    var brandEl = document.querySelector('nav span.font-serif');
+    var brand = (brandEl && rapikan(brandEl.textContent)) || 'Adrisya Decoration';
+    var nomor = waDariUbahan || '';
+    if (!nomor) {
+      var a0 = document.querySelector('a[href*="wa.me/"]');
+      var m = a0 && a0.getAttribute('href').match(/wa\.me\/(\d+)/);
+      nomor = m ? m[1] : '6289669636206';
+    }
+    var frag = document.createDocumentFragment();
+    daftar.forEach(function (p, i) {
+      var besar = p.gaya === 'besar';
+      var kartu = (besar && tplBesar ? tplBesar : tplBiasa).cloneNode(true);
+      kartu.classList.remove('reveal', 'tampil');
+      if (besar) kartu.classList.add('kartu-lebar'); else kartu.classList.remove('kartu-lebar');
+      var h3 = kartu.querySelector('h3'); if (h3) h3.textContent = p.nama || '';
+      isiTeksAwal(kartu.querySelector('.text-3xl'), p.harga || '');
+      isiTeksAwal(kartu.querySelector('.border-b'), p.tagline || '');
+      susunDaftar(kartu.querySelector('ul'), p.fitur || []);
+      var tombol = kartu.querySelector('a');
+      if (tombol) {
+        isiTeksAwal(tombol, p.tombol || 'Pesan Sekarang');
+        tombol.setAttribute('href', 'https://wa.me/' + nomor + '?text=' + encodeURIComponent('Halo ' + brand + ', saya tertarik Pemesanan *' + (p.nama || '') + '*.'));
+      }
+      var sl = kartu.querySelector('[id^="slider-"]');
+      if (sl) {
+        sl.id = 'slider-x' + (i + 1);
+        var tplImg = sl.querySelector('img');
+        var foto = (p.foto || []).filter(Boolean);
+        sl.innerHTML = '';
+        foto.forEach(function (u, j) {
+          var im = tplImg ? tplImg.cloneNode(false) : document.createElement('img');
+          im.setAttribute('src', u);
+          im.setAttribute('alt', (p.nama || 'Paket') + ' ' + (j + 1));
+          sl.appendChild(im);
+        });
+        if (!foto.length) {
+          var bungkus = sl.closest('.relative');
+          if (bungkus) bungkus.style.display = 'none';
+        }
+      }
+      frag.appendChild(kartu);
+    });
+    grid.innerHTML = '';
+    grid.appendChild(frag);
+    grid.querySelectorAll('[id^="slider-"]').forEach(function (sl) {
+      if (window.__ikatSlider) window.__ikatSlider(sl);
+    });
+    var mq = document.querySelector('.pita-marquee .lintasan');
+    if (mq) {
+      var satu = daftar.map(function (p) { return p.nama || ''; }).join(' ✦ ') + ' ✦ ';
+      mq.textContent = satu + satu;
+    }
+  }
+  function bangunGaleri(daftar) {
+    var grid = document.querySelector('#katalog .grid');
+    if (!grid) return;
+    var tpl = grid.children[0];
+    if (!tpl) return;
+    var frag = document.createDocumentFragment();
+    daftar.slice(0, 12).forEach(function (u, i) {
+      if (!u) return;
+      var item = tpl.cloneNode(true);
+      item.classList.remove('reveal', 'tampil');
+      var img = item.querySelector('img');
+      if (img) { img.setAttribute('src', u); img.setAttribute('alt', 'Galeri Seserahan ' + (i + 1)); }
+      frag.appendChild(item);
+    });
+    grid.innerHTML = '';
+    grid.appendChild(frag);
+  }
+  function ikonUntuk(teks) {
+    teks = (teks || '').toLowerCase();
+    if (teks.indexOf('instagram') >= 0) return 'fab fa-instagram';
+    if (teks.indexOf('tiktok') >= 0) return 'fab fa-tiktok';
+    if (teks.indexOf('facebook') >= 0 || teks.indexOf('fb.com') >= 0) return 'fab fa-facebook-f';
+    if (teks.indexOf('youtube') >= 0 || teks.indexOf('youtu.be') >= 0) return 'fab fa-youtube';
+    if (teks.indexOf('whatsapp') >= 0 || teks.indexOf('wa.me') >= 0) return 'fab fa-whatsapp';
+    if (teks.indexOf('telegram') >= 0 || teks.indexOf('t.me') >= 0) return 'fab fa-telegram';
+    return 'fas fa-link';
+  }
+  function bangunTautan(daftar, waDariUbahan) {
+    var jangkar = document.querySelector('footer a[href*="instagram.com"]') || document.querySelector('footer a[href*="wa.me"]');
+    if (!jangkar || !jangkar.parentElement) return;
+    var wadah = jangkar.parentElement;
+    var tpl = jangkar.cloneNode(true);
+    wadah.innerHTML = '';
+    daftar.forEach(function (t) {
+      if (!t || !t.url) return;
+      var url = t.url;
+      if (waDariUbahan && url.indexOf('wa.me/') >= 0) url = url.replace(/wa\.me\/\d+/, 'wa.me/' + waDariUbahan);
+      var a = tpl.cloneNode(true);
+      a.setAttribute('href', url);
+      a.setAttribute('title', t.label || '');
+      a.setAttribute('aria-label', t.label || '');
+      var ic = a.querySelector('i');
+      if (ic) ic.className = ikonUntuk((t.label || '') + ' ' + t.url);
+      wadah.appendChild(a);
+    });
+    var ig = null;
+    daftar.forEach(function (t) { if (!ig && ((t.label || '') + ' ' + (t.url || '')).toLowerCase().indexOf('instagram') >= 0) ig = t; });
+    if (ig) document.querySelectorAll('a[href*="instagram.com"]').forEach(function (a) {
+      if (!wadah.contains(a)) a.setAttribute('href', ig.url);
+    });
+  }
   function muat() {
     fetch('test-konten.json?_=' + Date.now()).then(function (r) { return r.json(); }).then(function (k) {
       var u = (k && k.ubahan) || {};
       (window.KATALOG_TEST || []).forEach(function (f) {
         if (Object.prototype.hasOwnProperty.call(u, f.kunci)) terapkan(f, u[f.kunci]);
       });
+      if (k && Array.isArray(k.paket) && k.paket.length) bangunPaket(k.paket, u.wa_nomor || '');
+      if (k && Array.isArray(k.galeri) && k.galeri.length) bangunGaleri(k.galeri);
+      if (k && Array.isArray(k.tautan) && k.tautan.length) bangunTautan(k.tautan, u.wa_nomor || '');
     }).catch(function () { /* tanpa JSON, halaman tampil apa adanya */ });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', muat);
