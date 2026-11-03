@@ -26,24 +26,6 @@
    "gaya": "besar"
   },
   {
-   "nama": "Tray Putih",
-   "harga": "Rp 65.000",
-   "tagline": "Promo 5 Box:",
-   "fitur": [
-    "Tampilan bersih, estetik & minimalis",
-    "Termasuk Sewa Tempat Cincin & Uang ✨",
-    "Hiasan bunga artificial cantik",
-    "Sewa > 5 box harga mengikuti diskon paket"
-   ],
-   "tombol": "Pesan Tray Putih",
-   "foto": [
-    "https://lh3.googleusercontent.com/d/1MGDjDn0qScToc7tlVv3cD_x52IYYhFh_",
-    "https://lh3.googleusercontent.com/d/1De326NlSXMwL5OLd-5Y3UpuPsZZeEQMR",
-    "https://lh3.googleusercontent.com/d/1Dhg7PyRYi03qKbgNOfutH-qwJFJkkNTH"
-   ],
-   "gaya": "biasa"
-  },
-  {
    "nama": "Tray Crystal",
    "harga": "Rp 85.000",
    "tagline": "Promo 5 Box:",
@@ -58,24 +40,6 @@
     "https://lh3.googleusercontent.com/d/1WhVw_ul8PTpFJpMRPUaIkwoTj2LLjiTt",
     "https://lh3.googleusercontent.com/d/1pZzw4OaTUqmyz3JDYgCJOsWafZDIHlBk",
     "https://lh3.googleusercontent.com/d/1DdGO1_j-k4PHyt12flTCFrz8GHkfc5Qy"
-   ],
-   "gaya": "biasa"
-  },
-  {
-   "nama": "Hidden Tray (Kain)",
-   "harga": "Rp 75.000",
-   "tagline": "Promo 5 Box:",
-   "fitur": [
-    "Desain tertutup berbalut kain privasi",
-    "Termasuk Sewa Tempat Cincin & Uang ✨",
-    "Kesan elegan, klasik & sangat rapi",
-    "Sewa > 5 box harga mengikuti diskon paket"
-   ],
-   "tombol": "Pesan Hidden Kain",
-   "foto": [
-    "https://lh3.googleusercontent.com/d/1BxY-xMqi13F_0NDvw71ueAdUl8ekFm8a",
-    "https://lh3.googleusercontent.com/d/1pyel0V0xcwplw_ZkJVH3wJYuMP0Qtnl8",
-    "https://lh3.googleusercontent.com/d/1pH5NA3VyMlhCadj3Pg2pJBZvTo0ohub6"
    ],
    "gaya": "biasa"
   },
@@ -98,20 +62,20 @@
    "gaya": "biasa"
   },
   {
-   "nama": "Kreasi Mahar",
-   "harga": "Mulai",
-   "tagline": "Spesial Kustom",
+   "nama": "Hidden Tray (Kain)",
+   "harga": "Rp 75.000",
+   "tagline": "Promo 5 Box:",
    "fitur": [
-    "Desain mahar kustom sesuai impian",
-    "Pigura premium anti rayap",
-    "Hiasan cutting nama & bunga detail",
-    "Bebas request tema warna"
+    "Desain tertutup berbalut kain privasi",
+    "Termasuk Sewa Tempat Cincin & Uang ✨",
+    "Kesan elegan, klasik & sangat rapi",
+    "Sewa > 5 box harga mengikuti diskon paket"
    ],
-   "tombol": "Pesan Mahar",
+   "tombol": "Pesan Hidden Kain",
    "foto": [
-    "https://lh3.googleusercontent.com/d/1kEqsw9YKMszOJWXfYnOCnpz2SgrqLsas",
-    "https://lh3.googleusercontent.com/d/1fHsdbQ38lA853hXWsSlKoGHuYx40SUb5",
-    "https://lh3.googleusercontent.com/d/1fHsdbQ38lA853hXWsSlKoGHuYx40SUb5"
+    "https://lh3.googleusercontent.com/d/1BxY-xMqi13F_0NDvw71ueAdUl8ekFm8a",
+    "https://lh3.googleusercontent.com/d/1pyel0V0xcwplw_ZkJVH3wJYuMP0Qtnl8",
+    "https://lh3.googleusercontent.com/d/1pH5NA3VyMlhCadj3Pg2pJBZvTo0ohub6"
    ],
    "gaya": "biasa"
   },
@@ -130,6 +94,42 @@
     "https://lh3.googleusercontent.com/d/1xTYe52fyd5mIIhiP19Qbf50MW2iCsCdx",
     "https://lh3.googleusercontent.com/d/1iU1KG9jvSVtjsPk5LV-lb0u3woYaD-W7",
     "https://lh3.googleusercontent.com/d/1lZMDYRzbAKxhrSvUIVi8ZqgFYb9e8oNi"
+   ],
+   "gaya": "biasa"
+  },
+  {
+   "nama": "Tray Putih",
+   "harga": "Rp 65.000",
+   "tagline": "Promo 5 Box:",
+   "fitur": [
+    "Tampilan bersih, estetik & minimalis",
+    "Termasuk Sewa Tempat Cincin & Uang ✨",
+    "Hiasan bunga artificial cantik",
+    "Sewa > 5 box harga mengikuti diskon paket"
+   ],
+   "tombol": "Pesan Tray Putih",
+   "foto": [
+    "https://lh3.googleusercontent.com/d/1MGDjDn0qScToc7tlVv3cD_x52IYYhFh_",
+    "https://lh3.googleusercontent.com/d/1De326NlSXMwL5OLd-5Y3UpuPsZZeEQMR",
+    "https://lh3.googleusercontent.com/d/1Dhg7PyRYi03qKbgNOfutH-qwJFJkkNTH"
+   ],
+   "gaya": "biasa"
+  },
+  {
+   "nama": "Kreasi Mahar",
+   "harga": "Mulai Dari Rp 250.000",
+   "tagline": "Spesial Kustom",
+   "fitur": [
+    "Desain mahar kustom sesuai impian",
+    "Pigura premium anti rayap",
+    "Hiasan cutting nama & bunga detail",
+    "Bebas request tema warna"
+   ],
+   "tombol": "Pesan Mahar",
+   "foto": [
+    "https://lh3.googleusercontent.com/d/1kEqsw9YKMszOJWXfYnOCnpz2SgrqLsas",
+    "https://lh3.googleusercontent.com/d/1fHsdbQ38lA853hXWsSlKoGHuYx40SUb5",
+    "https://lh3.googleusercontent.com/d/1fHsdbQ38lA853hXWsSlKoGHuYx40SUb5"
    ],
    "gaya": "biasa"
   }
