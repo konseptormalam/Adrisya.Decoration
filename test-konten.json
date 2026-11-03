@@ -1,4 +1,137 @@
 {
  "sandiHash": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
- "ubahan": {}
+ "ubahan": {
+  "logo": "test-img/logo-1793704020173.jpg",
+  "logo_hero": "test-img/logo_hero-1793704011163.jpg"
+ },
+ "paket": [
+  {
+   "nama": "Standing Rotary",
+   "harga": "Rp 500.000",
+   "tagline": "Eksklusif & Unik",
+   "fitur": [
+    "Display standing berputar otomatis (rotary)",
+    "Menonjolkan detail dari segala sisi ✨",
+    "Sangat cocok untuk display perhiasan/mahar",
+    "Kesan mewah, modern, dan tidak pasaran",
+    "Sudah include dengan pembatas",
+    "Tidak termasuk bunga hias standing rotary"
+   ],
+   "tombol": "Pesan Standing Rotary",
+   "foto": [
+    "https://lh3.googleusercontent.com/d/1q6MWQ_RquFw9-X8TbSXCBSxWrOtxcXn1",
+    "https://lh3.googleusercontent.com/d/1ncDUn0L-DsVDPmkxr4hikxACLmTSsPCB",
+    "https://lh3.googleusercontent.com/d/1q6MWQ_RquFw9-X8TbSXCBSxWrOtxcXn1"
+   ],
+   "gaya": "besar"
+  },
+  {
+   "nama": "Tray Putih",
+   "harga": "Rp 65.000",
+   "tagline": "Promo 5 Box:",
+   "fitur": [
+    "Tampilan bersih, estetik & minimalis",
+    "Termasuk Sewa Tempat Cincin & Uang ✨",
+    "Hiasan bunga artificial cantik",
+    "Sewa > 5 box harga mengikuti diskon paket"
+   ],
+   "tombol": "Pesan Tray Putih",
+   "foto": [
+    "https://lh3.googleusercontent.com/d/1MGDjDn0qScToc7tlVv3cD_x52IYYhFh_",
+    "https://lh3.googleusercontent.com/d/1De326NlSXMwL5OLd-5Y3UpuPsZZeEQMR",
+    "https://lh3.googleusercontent.com/d/1Dhg7PyRYi03qKbgNOfutH-qwJFJkkNTH"
+   ],
+   "gaya": "biasa"
+  },
+  {
+   "nama": "Tray Crystal",
+   "harga": "Rp 85.000",
+   "tagline": "Promo 5 Box:",
+   "fitur": [
+    "Kotak full akrilik bening mewah",
+    "Termasuk Sewa Tempat Cincin & Uang ✨",
+    "Rangkaian bunga premium & eksklusif",
+    "Sewa > 5 box harga mengikuti diskon paket"
+   ],
+   "tombol": "Pesan Tray Crystal",
+   "foto": [
+    "https://lh3.googleusercontent.com/d/1WhVw_ul8PTpFJpMRPUaIkwoTj2LLjiTt",
+    "https://lh3.googleusercontent.com/d/1pZzw4OaTUqmyz3JDYgCJOsWafZDIHlBk",
+    "https://lh3.googleusercontent.com/d/1DdGO1_j-k4PHyt12flTCFrz8GHkfc5Qy"
+   ],
+   "gaya": "biasa"
+  },
+  {
+   "nama": "Hidden Tray (Kain)",
+   "harga": "Rp 75.000",
+   "tagline": "Promo 5 Box:",
+   "fitur": [
+    "Desain tertutup berbalut kain privasi",
+    "Termasuk Sewa Tempat Cincin & Uang ✨",
+    "Kesan elegan, klasik & sangat rapi",
+    "Sewa > 5 box harga mengikuti diskon paket"
+   ],
+   "tombol": "Pesan Hidden Kain",
+   "foto": [
+    "https://lh3.googleusercontent.com/d/1BxY-xMqi13F_0NDvw71ueAdUl8ekFm8a",
+    "https://lh3.googleusercontent.com/d/1pyel0V0xcwplw_ZkJVH3wJYuMP0Qtnl8",
+    "https://lh3.googleusercontent.com/d/1pH5NA3VyMlhCadj3Pg2pJBZvTo0ohub6"
+   ],
+   "gaya": "biasa"
+  },
+  {
+   "nama": "Hidden Box Ukir",
+   "harga": "Rp 80.000",
+   "tagline": "Promo 5 Box:",
+   "fitur": [
+    "Paper box premium ukiran eksklusif",
+    "Termasuk Sewa Tempat Cincin & Uang ✨",
+    "Melindungi hantaran dengan kemewahan",
+    "Sewa > 5 box harga mengikuti diskon paket"
+   ],
+   "tombol": "Pesan Box Ukir",
+   "foto": [
+    "https://lh3.googleusercontent.com/d/1J7hsnEr8qS_uoDlm1eY6sR9njomFiOvU",
+    "https://lh3.googleusercontent.com/d/1EMymptg7_C3htBAf-ITDjq_TqwLBtwxx",
+    "https://lh3.googleusercontent.com/d/149WobfiarlFlJbshOJ5VnSiPD4O23rYc"
+   ],
+   "gaya": "biasa"
+  },
+  {
+   "nama": "Kreasi Mahar",
+   "harga": "Mulai",
+   "tagline": "Spesial Kustom",
+   "fitur": [
+    "Desain mahar kustom sesuai impian",
+    "Pigura premium anti rayap",
+    "Hiasan cutting nama & bunga detail",
+    "Bebas request tema warna"
+   ],
+   "tombol": "Pesan Mahar",
+   "foto": [
+    "https://lh3.googleusercontent.com/d/1kEqsw9YKMszOJWXfYnOCnpz2SgrqLsas",
+    "https://lh3.googleusercontent.com/d/1fHsdbQ38lA853hXWsSlKoGHuYx40SUb5",
+    "https://lh3.googleusercontent.com/d/1fHsdbQ38lA853hXWsSlKoGHuYx40SUb5"
+   ],
+   "gaya": "biasa"
+  },
+  {
+   "nama": "Tray Full Acrylic",
+   "harga": "Rp 75.000",
+   "tagline": "Promo 5 Box:",
+   "fitur": [
+    "Desain full akrilik premium & transparan",
+    "Termasuk Sewa Tempat Cincin & Uang ✨",
+    "Tampilan super mewah dari segala sisi",
+    "Sewa > 5 box harga mengikuti diskon paket"
+   ],
+   "tombol": "Pesan Full Acrylic",
+   "foto": [
+    "https://lh3.googleusercontent.com/d/1xTYe52fyd5mIIhiP19Qbf50MW2iCsCdx",
+    "https://lh3.googleusercontent.com/d/1iU1KG9jvSVtjsPk5LV-lb0u3woYaD-W7",
+    "https://lh3.googleusercontent.com/d/1lZMDYRzbAKxhrSvUIVi8ZqgFYb9e8oNi"
+   ],
+   "gaya": "biasa"
+  }
+ ]
 }
