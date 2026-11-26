@@ -8,8 +8,9 @@
   {
    "nama": "Standing Rotary",
    "harga": "Rp 650.000",
-   "tagline": "Exclusive & Unik",
+   "tagline": "Pemesanan Standing Rotary Harus dengan Seserahan",
    "fitur": [
+    "Tidak menerima pemesanan hanya standing rotary saja",
     "Display standing berputar otomatis (rotary)",
     "Menonjolkan detail dari segala sisi ✨",
     "Sangat cocok untuk display perhiasan/mahar",
@@ -132,6 +133,15 @@
     "https://lh3.googleusercontent.com/d/1fHsdbQ38lA853hXWsSlKoGHuYx40SUb5",
     "https://lh3.googleusercontent.com/d/1fHsdbQ38lA853hXWsSlKoGHuYx40SUb5"
    ],
+   "gaya": "biasa"
+  },
+  {
+   "nama": "Paket Baru",
+   "harga": "Rp 0",
+   "tagline": "",
+   "fitur": [],
+   "tombol": "Pesan Sekarang",
+   "foto": [],
    "gaya": "biasa"
   }
  ]
