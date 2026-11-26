@@ -136,6 +136,20 @@
    "gaya": "biasa"
   },
   {
+   "nama": "Tray Ruby",
+   "harga": "Rp 100000",
+   "tagline": "Promo 5 Box : Rp 475000",
+   "fitur": [],
+   "tombol": "Pesan Sekarang",
+   "foto": [
+    "test-img/paketfoto-1795658962462.jpg",
+    "test-img/paketfoto-1795658977724.jpg",
+    "test-img/paketfoto-1795659008796.jpg",
+    "test-img/paketfoto-1795659029293.jpg"
+   ],
+   "gaya": "biasa"
+  },
+  {
    "nama": "Paket Baru",
    "harga": "Rp 0",
    "tagline": "",
