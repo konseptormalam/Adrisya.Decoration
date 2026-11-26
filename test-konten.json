@@ -150,10 +150,33 @@
    "gaya": "biasa"
   },
   {
-   "nama": "Paket Baru",
-   "harga": "Rp 0",
-   "tagline": "",
-   "fitur": [],
+   "nama": "Hias Mobil Standart",
+   "harga": "Rp 150000",
+   "tagline": "Simple Decoration",
+   "fitur": [
+    "Dekorasi bagian depan mobil",
+    "Dekorasi handle pintu",
+    "FREE plat nama pengantin"
+   ],
+   "tombol": "Pesan Sekarang",
+   "foto": [
+    "test-img/paketfoto-1795659725116.jpg",
+    "test-img/paketfoto-1795659736729.jpg",
+    "test-img/paketfoto-1795659743794.jpg",
+    "test-img/paketfoto-1795659750255.jpg"
+   ],
+   "gaya": "biasa"
+  },
+  {
+   "nama": "Hias Mobil Premium",
+   "harga": "Rp 250000",
+   "tagline": "Premium Decoration",
+   "fitur": [
+    "Dekorasi bagian depan mobil",
+    "Dekorasi handle pintu",
+    "Dekorasi bagian belakang mobil",
+    "FREE plat nama pengantin"
+   ],
    "tombol": "Pesan Sekarang",
    "foto": [],
    "gaya": "biasa"
