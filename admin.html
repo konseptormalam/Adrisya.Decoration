@@ -411,6 +411,18 @@
       daftarPaket.push({ nama: 'Paket Baru', harga: 'Rp 0', tagline: '', fitur: [], tombol: 'Pesan Sekarang', foto: [], gaya: 'biasa' });
       gambarUlangEditor();
       segarkanSetelahPaketBerubah();
+      var daftarEl = $('daftarEditorPaket');
+      var kartuBaru = daftarEl ? daftarEl.lastElementChild : null;
+      if (kartuBaru) {
+        kartuBaru.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        kartuBaru.style.transition = 'box-shadow .4s';
+        kartuBaru.style.boxShadow = '0 0 0 3px var(--emas)';
+        setTimeout(function () { kartuBaru.style.boxShadow = ''; }, 2600);
+        setTimeout(function () {
+          var inpNama = kartuBaru.querySelector('input[type=text]');
+          if (inpNama) { inpNama.focus({ preventScroll: true }); inpNama.select(); }
+        }, 450);
+      }
     });
     isi.appendChild(tambahAtas);
     var daftar = el('div');
