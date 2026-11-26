@@ -16,7 +16,7 @@
     "Sangat cocok untuk display perhiasan/mahar",
     "Kesan mewah, modern, dan tidak pasaran",
     "Sudah include dengan pembatas",
-    "Tidak termasuk bunga hias standing rotary"
+    "Termasuk bunga hias standing rotary"
    ],
    "tombol": "Pesan Standing Rotary",
    "foto": [
@@ -137,8 +137,8 @@
   },
   {
    "nama": "Tray Ruby",
-   "harga": "Rp 100000",
-   "tagline": "Promo 5 Box : Rp 475000",
+   "harga": "Rp 100.000",
+   "tagline": "Promo 5 Box : Rp 475.000",
    "fitur": [],
    "tombol": "Pesan Sekarang",
    "foto": [
@@ -151,7 +151,7 @@
   },
   {
    "nama": "Hias Mobil Standart",
-   "harga": "Rp 150000",
+   "harga": "Rp 150.000",
    "tagline": "Simple Decoration",
    "fitur": [
     "Dekorasi bagian depan mobil",
@@ -169,7 +169,7 @@
   },
   {
    "nama": "Hias Mobil Premium",
-   "harga": "Rp 250000",
+   "harga": "Rp 250.000",
    "tagline": "Premium Decoration",
    "fitur": [
     "Dekorasi bagian depan mobil",
